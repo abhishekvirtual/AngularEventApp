@@ -7,7 +7,7 @@ export class EventServiceComponent {
      return EVENTS;
    }
 
-   getEvents(id: number) {
+   getEvent(id: number) {
     return EVENTS.find(event => event.id === id );
    }
 }

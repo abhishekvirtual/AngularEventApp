@@ -25,8 +25,7 @@ import { stringify } from '@angular/compiler/src/util';
 </div>
   `,
   styles :[`
-  .green {color : #003300 !important;}
-  .bold { font-weigth: 700 !important;}
+ 
   .pad-left{margin-left:20px;}
   .well div{color : #bbb}
   `],
@@ -41,5 +40,4 @@ export class EventThumbnailComponent {
      return {};
 
   }
-
 }

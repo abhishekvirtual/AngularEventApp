@@ -8,7 +8,7 @@ import { EventEmitter } from '@angular/core';
    <div class="well hoverwell thumbnail">
   <h2>{{event?.name}}</h2>
   <div>Date: {{event?.date}}</div>
-  <div [ngSwitch] = "event?.time">Time: {{event?.time}}
+  <div [class.green] = "event?.time === '8:00 am'" [ngSwitch] = "event?.time">Time: {{event?.time}}
   <span *ngSwitchCase = "'8:00 am'">(EarlyStart)</span>
   <span *ngSwitchCase = "'10:00 am'">(LateStart)</span>
   <span *ngSwitchDefault>(Normal Start)</span>
@@ -23,7 +23,10 @@ import { EventEmitter } from '@angular/core';
   </div>
 </div>
   `,
-  styles :[`.pad-left{margin-left:20px;}
+  styles :[`
+  .green {color : #003300 !important;}
+  .bold { font-weigth: bold;}
+  .pad-left{margin-left:20px;}
   .well div{color : #bbb}
   `],
 

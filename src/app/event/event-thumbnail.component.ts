@@ -6,18 +6,22 @@ import { EventEmitter } from '@angular/core';
   selector: 'event-thumbnail',
   template: `
    <div class="well hoverwell thumbnail">
-  <h2>{{event.name}}</h2>
-  <div>Date: {{event.date}}</div>
-  <div>Time: {{event.time}}</div>
-  <div>Price: \${{event.price}} </div>
-  <div>
-    <span>Location : {{event.location.address}}</span>
-    <span>&nbsp;</span>
-    <span>{{event.location.city}}, {{event.location.country}}</span>
+  <h2>{{event?.name}}</h2>
+  <div>Date: {{event?.date}}</div>
+  <div>Time: {{event?.time}}</div>
+  <div>Price: \${{event?.price}} </div>
+  <div *ngIf ="event?.location">
+    <span>Location : {{event?.location?.address}}</span>
+    <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
   </div>
-
+  <div *ngIf="event?.OnlineUrl">
+    OnlineUrl: {{event?.OnlineUrl}}
+  </div>
 </div>
-  `
+  `,
+  styles :[`.pad-left{margin-left:20px;}
+  .well div{color : #bbb}
+  `],
 
 })
 export class EventThumbnailComponent {

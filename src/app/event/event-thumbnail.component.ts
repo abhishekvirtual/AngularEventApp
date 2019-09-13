@@ -9,7 +9,7 @@ import { stringify } from '@angular/compiler/src/util';
    <div class="well hoverwell thumbnail">
   <h2>{{event?.name}}</h2>
   <div>Date: {{event?.date}}</div>
-  <div [ngStyle] = "{'color':event?.time==='8:00 am' ? '#003300':'#bbb','font-weight':event?.time === '8:00 am' ? 'bold' : 'normal'}" [ngSwitch] = "event?.time">Time: {{event?.time}}
+  <div [ngStyle] = "getStylesFunc()" [ngSwitch] = "event?.time">Time: {{event?.time}}
   <span *ngSwitchCase = "'8:00 am'">(EarlyStart)</span>
   <span *ngSwitchCase = "'10:00 am'">(LateStart)</span>
   <span *ngSwitchDefault>(Normal Start)</span>
@@ -35,10 +35,10 @@ import { stringify } from '@angular/compiler/src/util';
 export class EventThumbnailComponent {
 
   @Input() event: any;
-  getClassFunc() {
+  getStylesFunc(): any {
     if(this.event && this.event.time === '8:00 am')
-      return ["bold" ,"green"];
-     return [];
+      return {"font-weight":"bold" ,"color":"green"};
+     return {};
 
   }
 

@@ -36,8 +36,9 @@ export class EventThumbnailComponent {
 
   @Input() event: any;
   getClassFunc() {
-    const returnValue = this.event && this.event.time === '8:00 am';
-    return {green: returnValue, bold: returnValue};
+    if(this.event && this.event.time === '8:00 am')
+      return "bold green";
+
   }
 
 }
